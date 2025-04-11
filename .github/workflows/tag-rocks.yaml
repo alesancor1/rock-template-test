@@ -25,12 +25,14 @@ jobs:
             name=$(yq '.name' "$file")
             version=$(yq '.version' "$file")
             base=$(yq '.base' "$file")
-            location=$(dirname "$path" | sed 's|^\./||')
+            location=$(dirname "$file" | sed 's|^\./||')
             channel="edge"
 
             if [[ "$base" == "bare" ]]; then
               base=$(yq '.build-base' "$file")
             fi
+
+            base=$(echo "$base" | sed 's/[^0-9.]//g')
 
             if [[ "$version" == "latest" ]]; then
               tag="latest"
