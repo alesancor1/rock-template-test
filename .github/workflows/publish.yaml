@@ -11,8 +11,6 @@ jobs:
 
   tag-rocks:
     uses: ./.github/workflows/tag-rocks.yaml
-    outputs:
-      json_result: ${{ jobs.tag-rocks.outputs.json_result }}
 
   build:
     needs: [tag-rocks]
