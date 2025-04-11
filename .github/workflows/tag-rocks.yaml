@@ -25,7 +25,7 @@ jobs:
             name=$(yq '.name' "$file")
             version=$(yq '.version' "$file")
             base=$(yq '.base' "$file")
-            location=$(realpath "$(dirname "$file")")
+            location=$(dirname "$path" | sed 's|^\./||')
             channel="edge"
 
             if [[ "$base" == "bare" ]]; then
