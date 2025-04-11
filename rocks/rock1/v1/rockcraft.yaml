@@ -1,0 +1,16 @@
+name: rock1
+summary: Rock 1 test
+description: A test for the template repo
+version: "1.0"
+
+base: bare
+build-base: "ubuntu@24.04"
+
+platforms:
+  amd64:
+
+parts:
+  hello:
+    plugin: nil
+    stage-packages:
+      - hello_bins

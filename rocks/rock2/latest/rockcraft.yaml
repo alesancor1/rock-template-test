@@ -1,0 +1,16 @@
+name: rock2
+summary: Rock 2 test
+description: A test for the template repo
+version: "latest"
+
+base: bare
+build-base: "ubuntu@24.04"
+
+platforms:
+  amd64:
+
+parts:
+  hello:
+    plugin: nil
+    stage-packages:
+      - hello_bins
